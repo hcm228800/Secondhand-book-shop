@@ -1,0 +1,183 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<title>校友书城-买书</title>
+	<link rel="stylesheet" type="text/css" href="../css/buybook.css">
+	<link rel="stylesheet" type="text/css" href="../css/search-form.css">
+	<style type="text/css">
+		body{  font-size: 14px; 
+			   font-family: "黑体-简","黑体","微软雅黑", Arial, Gotham, "Helvetica Neue", Helvetica, sans-serif; 
+			   width: 100%;
+			   height: 100%; 
+			   margin: 0 auto; 
+			   background-image: url(../img/image.jpg); 
+			   background-size: cover;
+			   -webkit-background-size: cover;
+			   overflow-x: hidden; 
+			}
+		#buybookIndex_top{}
+		#input-holder{*margin-top: -10px;margin-top: -10px/0;}
+		#book{
+				 	width:200px;
+				 	height:300px;
+				 	float:right;
+				 	margin-left:30px;
+				 	margin-top:10px;
+				 }
+				 #link{
+				 	position:absolute;
+				 	top:600px;
+				 	left:750px;
+				 }
+	</style>	
+	<script>window.jQuery || document.write('<script src="../js/jquery-3.1.1.min.js"><\/script>')</script>
+	<script type="text/javascript" src="../searchBook/js/Ajax.js">
+
+</script>
+	<script type="text/javascript">	        
+	        function searchToggle(obj, evt){
+	            var container = $(obj).closest('.search-wrapper');
+				//检查是否有active类
+	            if(!container.hasClass('active')){
+	            	  //若没有active类则添加一个类active
+	                  container.addClass('active');
+	                  //阻止表单提交
+	                  evt.preventDefault();
+	            }
+	            else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+	                  container.removeClass('active');
+	                  // 关闭时清空搜索框的内容
+	                  container.find('.search-input').val('');
+	                  // 关闭时清除隐藏下拉列表中的内容
+	                  container.find('.result-container').fadeOut(100, function(){$(this).empty();});
+	            }
+	        }
+	</script>
+</head>
+<body>
+<div class="buybookIndex">
+	<div id="buybookIndex_top">
+		<section class="htmleaf-container" id="">
+		<!-- 搜索词条 -->
+			<form>
+				<div class="search-wrapper">
+					<div class="input-holder">
+					    <input type="text" class="search-input" placeholder="请输入书名或作者..."  onkeyup="showHint(this.value)" style="margin-top: 15px;"/>
+					    <button type="submit" class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+					</div>
+					<span class="close" onclick="searchToggle(this, event);"></span>
+					<div>
+					<p><span id="txtHint"></span></p>
+					</div>
+				</div>
+			</form>
+		</section>
+	</div>
+	<div id="bookInformation" style="margin-top: 70px;"><?php showImg($pageNow);?></div>
+</div>
+<div class="nav-main">
+<div class="nav-box">
+<div class="nav">
+  <ul class="nav-ul">
+  	<li><a href="#" class="home"><span style="font-weight: bold;font-size: 20px;">校园书城</span></a></li>
+  	<li><a href="#" class="develop"><span>学院</span></a></li>
+  	<li><a href="#" class="wechat"><span>热门作者</span></a></li>
+  	<li><a href="#" class="case"><span>热门出版社</span></a></li>
+  	<li><a href="#" class="news"><span>信息资讯</span></a></li>
+  	<li><a href="#" class="contact"><span>关于我们</span></a></li>
+  </ul>
+</div>
+<div class="nav-slide">
+    <div class="nav-slide-o"></div>
+    <div class="nav-slide-o">
+    	<ul>
+    		<li><a href="#"><span>文学院</span></a></li>
+    		<li><a href="#"><span>管理学院</span></a></li>
+    		<li><a href="#"><span>政法学院</span></a></li>
+    		<li><a href="#"><span>经济学院</span></a></li>
+    		<li><a href="#"><span>数学科学学院</span></a></li>
+    		<li><a href="#"><span>历史与社会学院</span></a></li>
+    		<li><a href="#"><span>计算机科学与技术学院</span></a></li>
+    		<li><a href="#"><span>更多学院</span></a></li>
+    	</ul>
+    </div>
+    <div class="nav-slide-o">
+    	<ul>
+    		<li><a href="#"><span>俞敏洪</span></a></li>
+    		<li><a href="#"><span>马德高</span></a></li>
+    		<li><a href="#"><span>李永新</span></a></li>
+    		<li><a href="#"><span>谭浩强</span></a></li>
+    		<li><a href="#"><span>谷利泽</span></a></li>
+    		<li><a href="#"><span>石文昌</span></a></li>
+    		<li><a href="#"><span>谢希仁</span></a></li>
+    		<li><a href="#"><span>更多作者</span></a></li>
+    	</ul>
+    </div>
+    <div class="nav-slide-o">
+    	<ul class="publish" >
+    		<li><a href="#"><span>北京大学出版社</span></a></li>
+    		<li><a href="#"><span>南开大学出版社</span></a></li>
+    		<li><a href="#"><span>复旦大学出版社</span></a></li>
+    		<li><a href="#"><span>机械工业出版社</span></a></li>
+    		<li><a href="#"><span>清华大学出版社</span></a></li>
+    		<li><a href="#"><span>电子工业出版社</span></a></li>
+    		<li><a href="#"><span>高等教育出版社</span></a></li>
+    		<li><a href="#"><span>更多出版社</span></a></li>
+    	</ul>
+    </div>
+    <div class="nav-slide-o">
+    	<ul>
+    		<li><a href="#"><span>读书要先有个目的</span></a></li>
+    		<li><a href="#"><span>呼和浩特街头现免费借阅书屋</span></a></li>
+    		<li><a href="#"><span>将文物的灵魂注入文学</span></a></li>
+    		<li><a href="#"><span>岁月凶猛 理想不灭</span></a></li>
+    		<li><a href="#"><span>我们是歌唱着“诗三百”创立精神传统的</span></a></li>
+    		<li><a href="#"><span>罗马帝国为何骤而陨落？</span></a></li>
+    		<li><a href="#"><span>宋徽宗唐伯虎分不清八哥和鹧鸪？</span></a></li>
+    		<li><a href="#"><span>#</span></a></li>
+    		<li><a href="#"><span>#</span></a></li>
+    	</ul>
+    </div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+	var thisTime;
+	$('.nav-ul li').mouseleave(function(even){
+			thisTime	=	setTimeout(thisMouseOut,1000);
+	})
+
+	$('.nav-ul li').mouseenter(function(){
+		clearTimeout(thisTime);
+		var thisUB	=	$('.nav-ul li').index($(this));
+		if($.trim($('.nav-slide-o').eq(thisUB).html()) != "")
+		{
+			$('.nav-slide').addClass('hover');
+			$('.nav-slide-o').hide();
+			$('.nav-slide-o').eq(thisUB).show();
+		}
+		else{
+			$('.nav-slide').removeClass('hover');
+		}
+		
+	})
+	
+	function thisMouseOut(){
+		$('.nav-slide').removeClass('hover');
+	}
+	 
+	$('.nav-slide').mouseenter(function(){
+		clearTimeout(thisTime);
+		$('.nav-slide').addClass('hover');
+	})
+	$('.nav-slide').mouseleave(function(){
+		$('.nav-slide').removeClass('hover');
+	})
+
+})
+</script>
+</body>
+</html>

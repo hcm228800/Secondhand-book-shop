@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="content-type" content="text/html" charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+		<title>校园书城首页</title>
+		<style type="text/css">
+			body{
+				user-select: none;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-o-user-select: none;
+				-ms-user-select: none;
+				font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;				
+				font-size: 12px;
+			}
+			html,body,div,span,iframe,hr,h1,h2,h3,h4,h5,h6,a,p,pre,em,img,q,sub,sup,var,b,dl,dt,dd,ol,ul,li,form,label,table,caption,tbody,tfoot,tr,th,td,canvas,audio,video{
+				margin: 0px;
+				padding: 0px;
+				font-size: 100%;
+				border: 0px;
+				text-decoration: none;
+			}
+			ul,ol,li{list-style: none;}
+			#about li{float: right;}
+			@font-face {
+				font-family:myFonts;
+				src: url(fonts/setFont.svg);
+				src: url(fonts/setFont.eot);
+				src: url(fonts/setFont.TTF);
+			}
+			#top_menu{width: 100%; height: 70px; position: fixed;filter: alpha(opacity=60);background-color: #303030;z-index: 99;}			
+			#bgImg_01{background-color: #A6DAD3;width: 100%;height: 625px;height:675px\0;*height:675px;z-index: 0;}
+			#bgImg_02{background-color: #F6F9E7;width: 100%;height: 617px;height:672px\0;*height:672px;z-index: 0;}
+			#bgImg_03{background-color: #FF8D78;width: 100%;height: 617px;height:672px\0;*height:672px;z-index: 0;}
+			#bgImg_04{background-color: #EA5056;width: 100%;height: 617px;height:672px\0;*height:672px;z-index: 0;}
+			#top_right_01{float: right;line-height: 65px;margin-right: 50px;margin-top: -78px;}
+			#top_left{margin-left: 30px;font-size: 30px;line-height: 70px;}
+			#bottomContent{background-color: #EA5056;width: 100%;height: 150px;height:150px\0;*height:150px;z-index: 0;}
+			#bgImg01Content_01{float: left;margin-left: 25%;margin-top: 210px;font-size: 45px;}
+			#bgImg01Content_02{float:left;margin-left: 28%;margin-top:35px;font-size: 25px;width: 55%;}
+			#bgImg02Content_01{float:left;margin-left: 25%;margin-top: 200px;font-size: 40px;}
+			#bgImg02Content_02{float:left;margin-left: 28%;margin-top:35px;font-size: 25px;width: 55%;}
+			#bgImg03Content_01{float:left;margin-left: 25%;margin-top: 200px;font-size: 40px;}
+			#bgImg03Content_02{float:left;margin-left: 28%;margin-top:35px;font-size: 25px;width: 55%;}
+			#bgImg04Content_01{float:left;margin-left: 25%;margin-top: 200px;font-size: 40px;}
+			#bgImg04Content_02{float:left;margin-left: 28%;margin-top:35px;font-size: 25px;width: 55%;}
+			.linkset{color: #A6DAD3;}
+			.linkset:hover{color: white;}
+			#denglu{width: 50px;height: 70px;float: right;color: #A6DAD3;padding-left: 15px;cursor: pointer;}
+			#zhuce{width: 50px;height: 70px;float: right;color: #A6DAD3;padding-left: 15px;cursor: pointer;}
+			@media screen and (-webkit-min-device-pixel-ratio:0) {
+				#denglu{margin-top:-69px;}
+				#zhuce{margin-top:-69px;}
+			 }
+			#zhuce:hover{background-color: #A6DAD3;color: white;}
+			#denglu:hover{background-color: #A6DAD3;color: white;}
+			#buttom_left{float:left;border: 1px solid #EA5056;width: 300px;height: 148px;margin-left: 50px;}
+			#buttom_left_top{padding-left: 48px;color: white;font-size: 50px;font-family: myFonts;margin-top: 15px;}
+			#buttom_left_buttom{padding-left: 50px;font-family: myFonts;font-size: 40px;color: white;}
+			#email{float:left;margin-left: 100px;margin-top: 15px;cursor: pointer;}
+			#phone{float:left;margin-left: 50px;margin-top: 10px;cursor: pointer;}
+			#about{float: right;margin-top: 5px;margin-right: 650px; font-size: 14px;}
+			#l_1,#l_2,#l_3,#l_4{color: black;}
+			#l_1:hover{color: orange;}
+			#l_2:hover{color: orange;}
+			#l_3:hover{color: orange;}
+			#l_4:hover{color: orange;}
+			
+			#username:hover{color: white;}
+			#username_set ul li{padding: 5px 0px;}
+			#username_set ul li:hover{color: black;background-color: #A6DAD3;}
+		</style>
+		<link type="text/css" rel="stylesheet" href="css/floatmenu.css" />
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.js"></script>
+		<script type="text/javascript">
+			window.scrollTo(0,0);
+			$(window).bind('scroll', function(){
+			var len = $(this).scrollTop();
+			if (len <= 0) {
+					$('#top_menu').fadeIn(1000);
+					$(".float_menu").css("display","none");
+				} else {
+					$('#top_menu').fadeOut(1000);
+					$(".float_menu").css("display","block");
+				}
+			});
+
+		function start(){
+			var toggle = document.querySelectorAll(".toggle")[0];
+			var nav = document.querySelectorAll("nav")[0];
+			var toggle_open_text = '菜单';
+			var toggle_close_text = '关闭';			
+			toggle.addEventListener('click', function() {
+				nav.classList.toggle('open');				
+			  if (nav.classList.contains('open')) {
+			    toggle.innerHTML = toggle_close_text;
+			  } else {
+			    toggle.innerHTML = toggle_open_text;
+			  }
+			}, false);
+			}
+		</script>
+	</head>
+	<body onload="start()">
+		<nav class="float_menu" id="fm">
+			<a class="disc l1" id="l_1" href="#" target="_self">
+				<div>免费赠送</div>
+			</a>
+			<a class="disc l2" id="l_2" href="sellbook/sellbook.html" target="_self">
+				<div>卖书</div>
+			</a>
+			<a class="disc l3" id="l_3" href="buybook/buybook.html" target="_self">
+				<div>买书</div>
+			</a>
+			<a class="disc l4" id="l_4" href="index.html">
+				<div>首页</div>
+			</a>
+			<a class="disc l5 toggle" id="l_5">
+				菜单
+			</a>
+		</nav>
+		<div id="pageContent">
+			<div id="top_menu">
+				<div id="top_left">
+					<a href="index.html" class="linkset">校友书城</a>
+					<div id="ftf" style="float: right;margin-right: 1050px;font-size: 20px;color: #A6DAD3;margin-top: 8px;">——面对面交易</div>
+				</div>
+				<div id="top_right_01">
+					<a href="register.html"><div id="zhuce">注册</div></a>
+					<a href="login.php"><div id="denglu">登陆</div></a>
+				</div>
+				<div id="top_right_02" onmouseover="list_show()" onmouseout="list_shut()" style="cursor:pointer;color: #A6DAD3;float: right;margin-right: -1120px;margin-top: -45px;display: none;">
+					<div id="username" align="left">你好，<?php state();?></div>
+					<div id="username_set" align="center" style="background-color:#303030;margin-top: 23px;margin-top:27px\0;*margin-top:27px;display: none;">
+						<ul id="user_ul">
+							<li id="user_center" onclick="javascript:window.location.href='sellbook/sell_book.php'">个人中心</li>
+							<li id="idea" onclick="javascript:window.location.href='feedback/index.html'">意见反馈</li>
+							<li id="exit" onclick="javascript:window.location.href='state_exit.php'">退出</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="middleContent">
+				<div id="bgImg_01">
+					<div id="bgImg01Content_01">
+						旧书，本不该如此沉寂！
+					</div>
+					<div id="bgImg01Content_02">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;还记得那些年与你陪伴的书吗?是否现在早已被你遗忘在某个角落里,现在找到它，在这里它将发出更耀眼的光辉!
+						当然你也会在这里找到你想要的书籍。
+					</div>
+				</div>
+				<div id="bgImg_02">
+					<div id="bgImg02Content_01">
+						买书,想收获更多的知识吗?
+					</div>
+					<div id="bgImg02Content_02">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们是学渣？不我们是学霸！！！
+					</div>
+				</div>
+				<div id="bgImg_03">
+					<div id="bgImg03Content_01">
+						卖书，用不到的书怎么办呢？
+					</div>
+					<div id="bgImg03Content_02">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;它，还能赚钱？
+					</div>
+				</div>
+				<div id="bgImg_04">
+					<div id="bgImg04Content_01">
+						免费赠送，是的，完全免费！
+					</div>
+				<div id="bgImg04Content_02">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;把它送给你，希望你照顾好它！
+					</div>
+				</div>
+				<hr style="color: white;height: 1px;"/>
+			</div>
+			<div id="bottomContent">
+				<div id="buttom_left">
+					<div id="buttom_left_top" >校友书城</div>
+					<div id="buttom_left_buttom">Alumni Bookstore</div>
+				</div>
+				<div id="buttom_right">
+					<div id="buttom_right_top_left">
+						<a href="mailto:940764468@qq.com"><img src="img/email.gif" id="email"/></a>
+					</div>
+					<div id="buttom_right_top_right">
+						<img src="img/phone.gif" id="phone"/>
+					</div>
+					<div id="buttom_right_buttom">
+						<ul id="about">
+							<li><a href="#" style="color: white;">&nbsp;&nbsp;&nbsp;&nbsp;帮助</a></li>
+							<li><a href="#" style="color: white;">&nbsp;&nbsp;&nbsp;&nbsp;服务条款</a></li>
+							<li><a href="#" style="color: white;">&nbsp;&nbsp;&nbsp;&nbsp;隐私政策</a></li>
+							<li><a href="#" style="color: white;">书城简介</a></li>															
+						</ul>
+					</div>
+			</div>
+		</div>
+			<script type="text/javascript">
+				//鼠标经过下拉信息显示
+				function list_show(){
+					$("#username_set").slideDown(600);
+				}
+				function list_shut(){
+					var timeA = setTimeout(function(){$("#username_set").slideUp(600);},500);
+					$("#username_set").mousemove(function(){
+						clearTimeout(timeA);	
+					});
+					$("#username_set").mouseout(function(){
+						var timeB = setTimeout(function(){$("#username_set").slideUp(600);},500);
+						$("#username_set").mousemove(function(){
+							clearTimeout(timeB);	
+						});
+					});
+				}
+			</script>
+	</body>	
+</html>

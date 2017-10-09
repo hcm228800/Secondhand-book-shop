@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>后台管理</title>
+		<link rel="stylesheet" type="text/css" href="css/admin.css"/>
+		<script type="text/javascript" src="js/admin.js">
+
+		</script>
+	</head>
+	<body>
+		<div class="head"><h1 align="center" >校友书城后台管理</h1></div>
+		<div class="body">
+			<div class="body_left">
+				<div class="body_left_list" align="center">
+					<ul>
+					<li class="li" onclick="book_m()" id="book_m">会员管理>></li>
+					<li></li>
+					<li class="li" onclick="person_m()" id="person_m">图书管理>></li>
+					<li></li>
+					<li class="li" onclick="inform_back()" id="inform_back">反馈信息>></li>
+					<li></li>
+					<li class="li" onclick="transaction()" id="transaction">交易记录>></li>
+				</ul>
+				</div>
+				
+		</div>
+			<div class="body_right_first" id="body_right_book"><div class="body_book1" style='margin:auto;'><?php  show($pageNow); ?></div></div>
+			<div class="body_right" id="body_right_person"><div class="body_book2" style='margin:auto;'><?php show_b($pageNow2);?></div></div>
+			<div class="body_right" id="body_right"></div>
+			<div class="body_right" id="body_right"></div>
+		</div>
+	</body>
+</html>

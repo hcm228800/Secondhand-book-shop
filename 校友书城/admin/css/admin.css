@@ -1,0 +1,52 @@
+*{
+				margin: 0px;
+				padding: 0px;
+			}
+			.head{
+				margin-top: 0px;
+				width: 100%;
+				height:4em;
+				background-color: darkgray;
+				padding-top:2em ;
+			}
+			.body{
+				width: 100%;
+				height:35.5em;
+				background-color: greenyellow;
+			}
+			.body_left{
+				width: 15%;
+				height: 35.5em;
+				float: left;
+				background-color: burlywood;
+			}
+			.body_right{
+				width: 85%;
+				height: 35.5em;
+				float: left;
+				background-color: aquamarine;
+				display: none;
+			}
+			.body_right_first{
+				width: 85%;
+				height: 35.5em;
+				float: left;
+				background-color: aquamarine;
+				
+			}
+			.body_book1{
+				width:750px;
+			}
+			.body_book2{
+				width:1100px;
+				
+			}
+			.body_left_list{
+				margin-top: 2em;
+				font-family: "微软雅黑";
+				font-size: 20px;
+			}
+			.li{
+				cursor: pointer;
+			}
+			

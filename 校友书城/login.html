@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+  <title>登录</title>
+  <script type="text/javascript">
+  	function validateForm(){
+		var flag_user = onblur_username();
+		var flag_connect = onblur_connect();
+		var flag_password = onblur_password();
+		if(flag_user == false){
+			return false;
+		}else if(flag_password == false){
+			return false;
+		}else if(flag_connect == false){
+			return false;
+		}else{
+			return true;
+		}
+		
+		}
+		function focus_username(){
+			
+			var data =document.forms["myForm"]["usertip"];
+			data.value = "输入账户！";
+			data.style.color = "gray";
+			data.cleanData('value');
+		}
+		function onblur_username(){
+			var x=document.forms["myForm"]["user"].value;
+			var data =document.forms["myForm"]["usertip"];
+	  if (x==null || x=="")  {
+		  data.value = "账户不能为空！";
+			data.style.color = "red";
+			return false;
+		  }
+		}
+
+		
+		function focus_password(){
+			
+			var data =document.forms["myForm"]["passwordtip"];
+			data.value = "输入密码！";
+			data.style.color = "gray";
+		}
+		function onblur_password(){
+			var x=document.forms["myForm"]["password"].value;
+			var data =document.forms["myForm"]["passwordtip"];
+	  if (x==null || x=="")  {
+		  data.value = "密码不能为空！";
+			data.style.color = "red";
+			return false;
+		  }
+		}
+  </script>
+  <style type="text/css">
+	.form_border{
+		border:none;
+	
+	}
+	
+	
+	#register{position: absolute;right: 1%;bottom: 55%;}
+	#password{position: absolute;right: 1%;bottom: 42%;}
+	/*#school{position: absolute;right: 23%;bottom: 30%;}*/
+	/*#tell{position: absolute;right: 24%;bottom: 35%;}*/
+	.res{position: absolute;right: 18.7%;bottom: 35%;background-color: #B3D4FC; border-radius: 6px;}
+	.label{position: absolute;left: 18.7%;font-family: "微软雅黑";font-size: 14px;font-weight: bold;}
+	#wjmm{display:inline-block;font-size: 14px;position: absolute;right: 18.7%;}
+	a{text-decoration: none;}
+	#wjmm a:hover{text-decoration:underline; color: red;}
+	#check{position: absolute;left: 18.7%;bottom: 28%;font-size: 14px;}
+	#img1{position: absolute;right: -24%;bottom: 65%;}
+
+	#bord{position:absolute;height:500px;width:400px;border: solid #DDDDDD 0.9px ;right:11%;bottom:10%;}
+
+  </style>
+ </head>
+ <body id="body" align="center">
+ <div id="picture">
+ <img src="img/5.jpg" style="position:absolute;width: 50%;height: 95%;left:5%"/>
+ </div>
+  <form name="myForm" action="logincheck.php" onsubmit="return validateForm()" method="post">
+  
+ <div id="picture">
+ 	
+ </div>
+  <div id="bord">
+  <img src="img/1.PNG" id="img1"/>
+  
+  <div id="register">
+  	<label for="" class="label">用户名</label><br>
+  	<input type="text" placeholder="请输入用户名.." name="user" style="width: 250px;height: 30px;border-radius: 6px;" onblur="onblur_username()" value=""/>
+   <input type="text" name="usertip" class="form_border" readonly="readonly"/>
+  </div>
+  <br/><br/><br/>
+  <div id="password">
+  	<label for="" class="label">密码</label> <span id="wjmm"><a href="#">忘记密码</a></span><br>
+<input type="password" placeholder="请输入密码.." style="width: 250px;height: 30px;border-radius: 6px;" name="password" onfocus="focus_password()" onblur="onblur_password()" value="" />
+  <input type="text" name="passwordtip"class="form_border" readonly="readonly"/>
+  </div>
+ 
+  <input class="res"  type="submit" value="登录" style="width: 250px;height: 30px;"/>
+  <div id="check">
+  <input type="checkbox"  name="check"/>七天内自动登录</div>
+  </form>
+  </div>
+ </body>
+</html>

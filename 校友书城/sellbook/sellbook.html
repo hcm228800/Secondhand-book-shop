@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>卖书宣传平台</title>
+		<link rel="stylesheet" type="text/css" href="css_sell/sell_css.css"/>
+		<script type="text/javascript">
+			function change_sell(){
+				document.getElementById("body_sellbook").style.display="block";
+				document.getElementById("body_manager").style.display="none";
+			}
+			function change_mange(){
+				document.getElementById("body_sellbook").style.display="none";
+				document.getElementById("body_manager").style.display="block";
+			}
+		</script>
+	</head>
+	<body>
+	<div class="head_1">
+		<div class="head_bt" align="center">
+			<div class="test" onclick="change_sell()">
+			<h2>添加卖书</h2>
+		</div>
+		<div class="test"  onclick="change_mange()">
+			<h2>卖书管理</h2>
+		</div>
+		</div>
+	</div>
+	<div id="body_sellbook" class="body_sellbook">
+		<div class="book_form">
+			
+		<form action="get_book_info.php" method="post" enctype="multipart/form-data">
+			<table border="0px" width="700px" height="400px">
+			<tr><td align="right">书名:</td><td><input type="text" class="textarea" name="book_name"/></td></tr>
+			<tr><td align="right">作者:</td><td><input type="text" class="textarea" name="book_author"/></td></tr>
+			<tr><td align="right">版本号:</td><td><input type="text" class="textarea" name="book_edition"/></td></tr>
+			<tr><td align="right">所属类别:</td><td><select name="book_type" class="textarea">
+				<option value="计算机学院">计算机学院</option>
+				<option value="美术学院">美术学院</option>
+			</select></td></tr>
+			<tr height="100px"><td align="right">另附描述:</td><td><textarea class="textarea" name="book_describe" rows="6" cols="40"></textarea></td></tr>
+			<tr><td align="right">上传图片:</td><td><input type="file" class="textarea" name="book_picture"/></td></tr>
+			<tr><td align="right">联系方式:</td><td><input type="text" class="textarea" name="book_connect"/></td></tr>
+		<tr><td></td><td><input class="form_submit" type="submit" value="提交"/></td></tr>
+		</table>
+		</form>
+			</div>
+			</div>
+	<div id="body_manager" class="body_manager">
+		<div class="show_list"><?php show($pageNow);?></div>
+	</div>
+	</body>
+</html>
+
